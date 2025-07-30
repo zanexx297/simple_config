@@ -1,34 +1,6 @@
 version: 1.1.5
 cache: true
 
-services:
-  api:
-    volumes:
-      - type: bind
-        source: ./librechat.yaml
-        target: /app/librechat.yaml
-
-
-modelSpecs:
-  enforce: true           # only show what’s in “list”
-  prioritize: true        # auto‑select the first one
-  list:
-    - name: "gpt-4o"
-      label: "GPT‑4o"
-      default: true
-      preset:
-        endpoint: openAI
-        model: gpt-4o
-
-    - name: "gpt-3.5-turbo"
-      label: "GPT‑3.5 Turbo"
-      default: false
-      preset:
-        endpoint: openAI
-        model: gpt-3.5-turbo
-
-
-
 # ─────────────────────────────────────────────────────────────
 # BALANCE (you already have this)
 balance:
