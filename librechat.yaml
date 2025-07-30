@@ -1,22 +1,59 @@
-# LibreChat Configuration for Railway Deployment
-# GitHub: https://raw.githubusercontent.com/YOUR-USERNAME/librechat-config/main/librechat.yaml
-# Usage: Set CONFIG_PATH=https://raw.githubusercontent.com/YOUR-USERNAME/librechat-config/main/librechat.yaml
-
 version: 1.1.5
 cache: true
 
-# Interface Configuration (non-sensitive)
+# ─────────────────────────────────────────────────────────────
+# BALANCE (you already have this)
+balance:
+  enabled: false
+
+# ─────────────────────────────────────────────────────────────
+# AUTH & USER‑KEY MANAGEMENT
+auth:
+  # Allows end‑users to set their own API keys via /api/keys
+  allowUserApiKeys: true
+
+# ─────────────────────────────────────────────────────────────
+# ENDPOINT CONFIGURATION
+endpoints:
+  openAI:
+    userProvidedOnly: true
+    groups:
+      - gpt-4o
+      - gpt-4o-mini
+      - gpt-4
+      - gpt-3.5-turbo
+  anthropic:
+    userProvidedOnly: true
+    groups:
+      - claude-3-5-sonnet-20241022
+      - claude-3-5-haiku-20241022
+      - claude-3-opus-20240229
+  google:
+    userProvidedOnly: true
+    groups:
+      - gemini-1.5-pro-latest
+      - gemini-1.5-flash-latest
+
+# ─────────────────────────────────────────────────────────────
+# MCP SERVERS
+# Explicitly empty so the UI won’t poll /api/mcp/connection/status
+mcpServers: {}
+
+# ─────────────────────────────────────────────────────────────
+# INTERFACE & POLICY LINKS
 interface:
   privacyPolicy:
     externalUrl: "https://librechat.ai/privacy-policy"
   termsOfService:
     externalUrl: "https://librechat.ai/tos"
 
-# Registration & Authentication (non-sensitive settings)
+# ─────────────────────────────────────────────────────────────
+# REGISTRATION CONTROL
 registration:
-  allowedDomains: []
+  allowedDomains: []   # empty = open signup
 
-# File Upload Configuration (no sensitive data)
+# ─────────────────────────────────────────────────────────────
+# FILE UPLOADS
 fileConfig:
   endpoints:
     openAI:
@@ -47,32 +84,10 @@ fileConfig:
         - "text/.*"
         - "application/pdf"
 
-# Endpoint Configuration (user-provided keys only)
-endpoints:
-  openAI:
-    userProvidedOnly: true
-    groups:
-      - "gpt-4o"
-      - "gpt-4o-mini"
-      - "gpt-4"
-      - "gpt-3.5-turbo"
-  
-  anthropic:
-    userProvidedOnly: true
-    groups:
-      - "claude-3-5-sonnet-20241022"
-      - "claude-3-5-haiku-20241022"
-      - "claude-3-opus-20240229"
-  
-  google:
-    userProvidedOnly: true
-    groups:
-      - "gemini-1.5-pro-latest"
-      - "gemini-1.5-flash-latest"
-
-# Rate Limiting (non-sensitive)
+# ─────────────────────────────────────────────────────────────
+# RATE LIMITING
 rateLimits:
-  messageLimit: 
+  messageLimit:
     windowInMinutes: 60
     max: 40
   fileUploads:
