@@ -155,11 +155,17 @@ mcpServers:
     command: "npx"
     args: ["-y", "@taazkareem/clickup-mcp-server@latest"]
     env:
-      CLICKUP_API_KEY: "user_provided"
-      CLICKUP_TEAM_ID: "user_provided"
+      CLICKUP_API_KEY: "{{CLICKUP_API_KEY}}"
+      CLICKUP_TEAM_ID: "{{CLICKUP_TEAM_ID}}"
       DOCUMENT_SUPPORT: "true"
-    userProvide: true
-    description: "ClickUp project management integration - requires personal API token and team ID"
+    customUserVars:
+      CLICKUP_API_KEY:
+        title: "ClickUp API Key"
+        description: "Your personal ClickUp API token from Settings > Apps"
+      CLICKUP_TEAM_ID:
+        title: "ClickUp Team ID"
+        description: "Your ClickUp team ID (workspace ID)"
+    description: "ClickUp project management integration"
 
 # ─────────────────────────────────────────────────────────────
 # FILE UPLOADS
