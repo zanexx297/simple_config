@@ -148,6 +148,21 @@ endpoints:
       titleModel: "llama-3.1-sonar-small-128k-chat"
       modelDisplayLabel: "Perplexity"
 
+# ─────────────────────────────────────────────────────────────
+# MCP SERVERS
+mcpServers:
+  clickup:
+    command: "npx"
+    args: ["-y", "@taazkareem/clickup-mcp-server@latest"]
+    env:
+      CLICKUP_API_KEY: "user_provided"
+      CLICKUP_TEAM_ID: "user_provided"
+      DOCUMENT_SUPPORT: "true"
+    userProvide: true
+    description: "ClickUp project management integration - requires personal API token and team ID"
+
+# ─────────────────────────────────────────────────────────────
+# FILE UPLOADS
 fileConfig:
   endpoints:
     default:
