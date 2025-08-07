@@ -165,7 +165,9 @@ mcpServers:
       CLICKUP_TEAM_ID:
         title: "ClickUp Team ID"
         description: "Your ClickUp team ID (workspace ID)"
-    description: "ClickUp project management integration"
+    access:
+      - "admin"
+    description: "ClickUp project management integration - Admin access only"
 
 # ─────────────────────────────────────────────────────────────
 # FILE UPLOADS
