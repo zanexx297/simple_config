@@ -30,7 +30,7 @@ memory:
       frequency_penalty: 0.1
 
 interface:
-  customWelcome: "Welcome to LibreChat! You can provide your own API keys in settings."
+  customWelcome: "Welcome to LibreChat! Add your API keys in settings to get started. 🚀"
   fileSearch: true
   endpointsMenu: true
   modelSelect: true
@@ -41,6 +41,7 @@ interface:
   bookmarks: true
   multiConvo: true
   agents: true
+  webSearch: true
 
 registration:
   socialLogins: []
@@ -52,14 +53,12 @@ endpoints:
       default:
         - "gpt-4o"
         - "gpt-4o-mini"
-        - "gpt-4-turbo"
-        - "gpt-4"
         - "gpt-3.5-turbo"
       fetch: false
     titleConvo: true
-    titleModel: "gpt-3.5-turbo"
+    titleModel: "gpt-4o-mini"
     summarize: false
-    summaryModel: "gpt-3.5-turbo"
+    summaryModel: "gpt-4o-mini"
     forcePrompt: false
     modelDisplayLabel: "OpenAI"
 
@@ -70,11 +69,9 @@ endpoints:
         - "claude-3-5-sonnet-20241022"
         - "claude-3-5-haiku-20241022"
         - "claude-3-opus-20240229"
-        - "claude-3-sonnet-20240229"
-        - "claude-3-haiku-20240307"
       fetch: false
     titleConvo: true
-    titleModel: "claude-3-haiku-20240307"
+    titleModel: "claude-3-5-haiku-20241022"
     modelDisplayLabel: "Anthropic"
 
   google:
@@ -96,15 +93,12 @@ endpoints:
       models:
         default:
           - "llama-3.3-70b-versatile"
-          - "llama-3.2-90b-text-preview"
-          - "llama-3.1-70b-versatile"
           - "llama-3.1-8b-instant"
           - "mixtral-8x7b-32768"
-          - "gemma2-9b-it"
         fetch: false
       titleConvo: true
       titleModel: "llama-3.1-8b-instant"
-      modelDisplayLabel: "Groq"
+      modelDisplayLabel: "Groq (Fast)"
 
     - name: "OpenRouter"
       apiKey: "user_provided"
@@ -158,11 +152,15 @@ endpoints:
 fileConfig:
   endpoints:
     default:
-      fileLimit: 5
-      fileSizeLimit: 10
-      totalSizeLimit: 50
+      fileLimit: 10
+      fileSizeLimit: 25
+      totalSizeLimit: 100
       supportedMimeTypes:
         - "image/.*"
         - "application/pdf"
         - "text/.*"
         - "application/json"
+        - "text/csv"
+        - "application/vnd.openxmlformats-officedocument.*"
+        - "application/msword"
+        - "text/markdown"
