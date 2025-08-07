@@ -167,6 +167,7 @@ mcpServers:
         description: "Your ClickUp team ID (workspace ID)"
     access:
       - "admin"
+    chatMenu: false
     description: "ClickUp project management integration - Admin access only"
 
 # ─────────────────────────────────────────────────────────────
